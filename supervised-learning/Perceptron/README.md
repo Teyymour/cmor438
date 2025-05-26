@@ -6,7 +6,7 @@ The perceptron is one of the simplest types of artificial neural networks, model
 
 ## Task
 
-In this project, I build a perceptron from scratch (using scikit-learn’s `Perceptron` under the hood) to classify whether an airline ticket fare is **above \$1 000** or **\$1 000 or below**. The pipeline includes:
+In this project, I build a perceptron model to classify whether an airline ticket fare is **above \$1 000** or **below \$1 000**. The pipeline includes:
 
 1. Loading the Kaggle “Airline Market Fare Prediction” dataset  
 2. Engineering a binary label \(`fare > 1000`\)  
