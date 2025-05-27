@@ -2,7 +2,8 @@
 Student Names: Teymour Davoudi and Patrick Batsell
 Instructor Name: Randy R. Davila
 
-📌 Introduction:
+
+Introduction:
 This GitHub repository contains all files, code, and documentation for the final project of the course CMOR 438 – Data Science & Machine Learning.
 We explore predictive and unsupervised machine learning techniques using real-world transportation fare data.
 
