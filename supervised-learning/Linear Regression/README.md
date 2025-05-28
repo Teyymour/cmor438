@@ -6,9 +6,9 @@ A Linear Regression model assumes a linear relationship between input features a
 
 ## Task
 
-In this project, I build a Linear Regression model to predict airline ticket fare (`Average_Fare`) by:
+We build a Linear Regression model to predict airline ticket fare (`Average_Fare`) by:
 1. Loading the Kaggle “Airline Market Fare Prediction” dataset  
-2. Cleaning data and dropping invalid rows  
+2. Cleaning data
 3. Engineering relevant features (`fare_per_mile`, `distance_log`, `pax_ratio`, binary flags)  
 4. Splitting into train/test sets  
 5. Scaling numeric features, encoding categorical variables, and training `LinearRegression` on log-transformed fares  
@@ -38,7 +38,7 @@ Features used:
 - `nonstop_flag` (1 = nonstop, 0 = connecting)  
 
 Target:  
-- `fare_log` (log1p of Average_Fare)  
+- `fare_log` (log1p of Average_Fare. We log transform for stability and to reduce right-skew)  
 
 ---
 
