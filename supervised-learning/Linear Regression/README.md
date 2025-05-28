@@ -46,5 +46,4 @@ Target:
 - pandas — data loading & manipulation  
 - numpy — numerical operations  
 - scikit-learn — `LinearRegression`, preprocessing, evaluation  
-- matplotlib — plotting residuals & true vs predicted scatter  
-- seaborn — enhanced visualization (optional)  
+- matplotlib — plotting residuals & true vs predicted scatter
