@@ -2,17 +2,15 @@
 
 A Linear Regression model assumes a linear relationship between input features and the target. It is fast, interpretable, and provides a strong baseline for fare prediction.
 
-Linear regression models the target variable $y$ as a linear combination of input features $x_j$:
+Linear regression models the target variable y as a linear combination of input features x₁,…,xₚ:
 
-\[
-\hat{y} = \beta_0 + \sum_{j=1}^{p} \beta_j x_j.
-\]
+y-hat = β₀ + β₁·x₁ + β₂·x₂ + … + βₚ·xₚ
 
-Here, $\beta_0$ is the intercept and $\beta_j$ are the feature coefficients. The parameters are estimated by minimizing the residual sum of squares across $n$ observations:
+Here β₀ is the intercept and βⱼ are the feature coefficients. The parameters are estimated by choosing β₀,…,βₚ to minimize the sum of squared residuals over n observations:
 
-\[
-\min_{\beta_0,\beta} \sum_{i=1}^{n} \bigl(y_i - \beta_0 - \sum_{j=1}^{p} \beta_j x_{ij}\bigr)^2.
-\]
+minimize over β₀,…,βₚ the quantity
+
+sum for i = 1 to n of [yᵢ – (β₀ + β₁·xᵢ₁ + β₂·xᵢ₂ + … + βₚ·xᵢₚ)]²
 
 ---
 
