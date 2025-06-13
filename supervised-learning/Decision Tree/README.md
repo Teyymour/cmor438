@@ -1,58 +1,56 @@
 # Decision Tree Regression
 
+![Decision Tree Illustration](./image.png)
+
+
 A Decision Tree Regression model approximates the target by recursively partitioning the feature space and predicting the mean value in each partition. It captures nonlinear relationships and interactions and is interpretable via its tree structure.
 
 ### Mathematical Explanation
 
-The model partitions the input space into M disjoint regions R1, R2, ..., RM and predicts a constant value cm for any feature vector x that falls in region Rm.
+The model partitions the input space into M disjoint regions R₁, R₂, …, Rₘ and predicts a constant value cₘ for any feature vector x that falls in region Rₘ.
 
-Predicted value = sum for m = 1 to M of [cm * indicator(x in Rm)].
+Predicted value = ∑ₘ [cₘ · 1(x ∈ Rₘ)].
 
-Each region is defined by binary splits on feature values. cm is the average target of training samples within region Rm. Splits are chosen to minimize the sum of squared errors in the resulting child nodes.
+Each region is defined by binary splits on feature values. cₘ is the average target of training samples within Rₘ. Splits are chosen to minimize the sum of squared errors in the resulting child nodes.
 
 ---
 
 ## Task
 
-We build a Decision Tree Regression model to predict airline ticket fare (`Average_Fare`) by:
-1. Loading the Kaggle “Airline Market Fare Prediction” dataset  
+We build a Decision Tree Regression model to predict diamond prices (`price`) by:  
+1. Loading the Kaggle “Diamonds Price Dataset”  
 2. Cleaning data  
-3. Engineering relevant features (`fare_per_mile`, `distance_log`, `pax_ratio`, binary flags)  
+3. Encoding categorical features (`cut`, `color`, `clarity`)  
 4. Splitting into train/test sets  
-5. Encoding categorical variables and training `DecisionTreeRegressor` on log-transformed fares  
-6. Computing MSE, MAE, R², visualizing residuals, true vs predicted scatter, feature importances, and optionally tree structure  
+5. Training `DecisionTreeRegressor` on `price`  
+6. Computing MSE, MAE, R²; visualizing residuals; actual vs predicted scatter; feature importances  
 
 ---
 
 ## Dataset & Features
 
-Airline Market Fare Prediction  
-- Source: Kaggle (orvile/airline-market-fare-prediction-data)  
-- File: `MarketFarePredictionData.csv` (~316 k rows)  
+Diamonds Price Dataset  
+- Source: Kaggle (amirhosseinmirzaie/diamonds-price-dataset)  
+- File: `diamonds.csv` (~54 k rows)  
 
 Features used:  
-- `NonStopMiles` (miles flown nonstop)  
-- `MktMilesFlown` (market-miles flown)  
-- `Pax` (total passengers)  
-- `CarrierPax` (carrier’s passengers)  
-- `Market_share` (market share of this route)  
-- `Market_HHI` (market concentration index)  
-- `LCC_Comp` (low-cost carrier competition level)  
-- `fare_per_mile` (Average_Fare / NonStopMiles)  
-- `distance_log` (log1p of NonStopMiles)  
-- `pax_ratio` (CarrierPax / Pax)  
-- `is_roundtrip` (1 = round trip, 0 = one way)  
-- `has_multiple_airports` (binary flag for multiple airports)  
-- `nonstop_flag` (1 = nonstop, 0 = connecting)  
+- `carat` (weight in carats)  
+- `cut` (quality of cut: Fair → Ideal)  
+- `color` (color rating: D → J)  
+- `clarity` (clarity rating: I1 → IF)  
+- `depth` (total depth % = z / mean(x, y))  
+- `table` (width of top surface % of widest point)  
+- `x` (length in mm)  
+- `y` (width in mm)  
+- `z` (height in mm)  
 
 Target:  
-- `fare_log` (log1p of Average_Fare. We log-transform for stability and to reduce right-skew)  
+- `price` (price in US dollars)  
 
 ---
 
 ## Libraries  
 - pandas — data loading & manipulation  
 - numpy — numerical operations  
-- scikit-learn — `DecisionTreeRegressor`, `OneHotEncoder`, `train_test_split`, evaluation metrics, `plot_tree`  
-- matplotlib — plotting residuals, true vs predicted, feature importances
-
+- scikit-learn — `DecisionTreeRegressor`, `OneHotEncoder`/`pd.get_dummies`, `train_test_split`, evaluation metrics  
+- matplotlib — plotting residuals, actual vs predicted, feature importances  
