@@ -4,6 +4,8 @@
 
 A Linear Regression model assumes a linear relationship between input features and the target. It is fast, interpretable, and provides a strong baseline for diamond price prediction.
 
+### Mathematical Explanation
+
 Predicted value:  
 y_hat = β0 + β1*x1 + β2*x2 + … + βp*xp
 
