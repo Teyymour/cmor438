@@ -1,59 +1,53 @@
 # Linear Regression
 
-A Linear Regression model assumes a linear relationship between input features and the target. It is fast, interpretable, and provides a strong baseline for fare prediction.
+![Linear Regression Illustration](./image.png)
 
-Linear regression models the target variable y as a linear combination of input features x₁,…,xₚ:
+A Linear Regression model assumes a linear relationship between input features and the target. It is fast, interpretable, and provides a strong baseline for diamond price prediction.
 
-y-hat = β₀ + β₁·x₁ + β₂·x₂ + … + βₚ·xₚ
+Predicted value:  
+y_hat = β0 + β1*x1 + β2*x2 + … + βp*xp
 
-Here β₀ is the intercept and βⱼ are the feature coefficients. The parameters are estimated by choosing β₀,…,βₚ to minimize the sum of squared residuals over n observations:
-
-minimize over β₀,…,βₚ the quantity
-
-sum for i = 1 to n of [yᵢ – (β₀ + β₁·xᵢ₁ + β₂·xᵢ₂ + … + βₚ·xᵢₚ)]²
+Coefficients β0…βp are chosen to minimize the sum of squared errors over all n samples:  
+minimize ∑(yi – (β0 + β1*xi1 + … + βp*xip))²
 
 ---
 
 ## Task
 
-We build a Linear Regression model to predict airline ticket fare (`Average_Fare`) by:
-1. Loading the Kaggle “Airline Market Fare Prediction” dataset  
-2. Cleaning data
-3. Engineering relevant features (`fare_per_mile`, `distance_log`, `pax_ratio`, binary flags)  
+We build a Linear Regression model to predict diamond prices (price) by:  
+1. Loading the Kaggle “Diamonds Price Dataset”  
+2. Cleaning data  
+3. Encoding categorical features (cut, color, clarity)  
 4. Splitting into train/test sets  
-5. Scaling numeric features, encoding categorical variables, and training `LinearRegression` on log-transformed fares  
-6. Computing MSE, MAE, R², and visualizing residuals & true vs predicted scatter  
+5. Scaling numeric features and fitting LinearRegression on price  
+6. Computing MSE, MAE, R²; visualizing residuals vs predicted and actual vs predicted  
 
 ---
 
 ## Dataset & Features
 
-Airline Market Fare Prediction  
-- Source: Kaggle (orvile/airline-market-fare-prediction-data)  
-- File: `MarketFarePredictionData.csv` (~316 k rows)  
+Diamonds Price Dataset  
+- Source: Kaggle (amirhosseinmirzaie/diamonds-price-dataset)  
+- File: `diamonds.csv` (~54 000 rows)  
 
 Features used:  
-- `NonStopMiles` (miles flown nonstop)  
-- `MktMilesFlown` (market-miles flown)  
-- `Pax` (total passengers)  
-- `CarrierPax` (carrier’s passengers)  
-- `Market_share` (market share of this route)  
-- `Market_HHI` (market concentration index)  
-- `LCC_Comp` (low-cost carrier competition level)  
-- `fare_per_mile` (Average_Fare / NonStopMiles)  
-- `distance_log` (log1p of NonStopMiles)  
-- `pax_ratio` (CarrierPax / Pax)  
-- `is_roundtrip` (1 = round trip, 0 = one way)  
-- `has_multiple_airports` (binary flag for multiple airports)  
-- `nonstop_flag` (1 = nonstop, 0 = connecting)  
+- `carat` (weight in carats)  
+- `cut` (quality of cut: Fair → Ideal)  
+- `color` (color rating: D → J)  
+- `clarity` (clarity rating: I1 → IF)  
+- `depth` (total depth percentage)  
+- `table` (width of top surface percentage)  
+- `x` (length in mm)  
+- `y` (width in mm)  
+- `z` (height in mm)  
 
 Target:  
-- `fare_log` (log1p of Average_Fare. We log transform for stability and to reduce right-skew)  
+- `price` (price in US dollars)  
 
 ---
 
 ## Libraries  
 - pandas — data loading & manipulation  
 - numpy — numerical operations  
-- scikit-learn — `LinearRegression`, preprocessing, evaluation  
-- matplotlib — plotting residuals & true vs predicted scatter
+- scikit-learn — `LinearRegression`, `StandardScaler`, `OneHotEncoder`/`pd.get_dummies`, `train_test_split`, evaluation metrics  
+- matplotlib — plotting residuals and actual vs predicted scatter  
