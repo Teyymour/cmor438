@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # 1) Load the CSV data
-df = pd.read_csv('/Users/pbat/cmor438/data/uber.csv')
+df = pd.read_csv("/Users/pbat/Projects/cmor438/data/uber.csv")
 
 print(df.head())
 
@@ -19,7 +19,6 @@ features = ['fare_amount',
             'pickup_longitude', 'pickup_latitude',
             'dropoff_longitude', 'dropoff_latitude',
             'passenger_count', 'hour']
-
 X = df[features].dropna()
 print("\nNumber of rows after dropna():", X.shape[0])
 print("Number of features (columns) used:", X.shape[1])
