@@ -1,45 +1,100 @@
-# Random Forest Regression
+# Diamond Price Prediction with Random Forest & Log-Transform
 
-A Random Forest regressor is an ensemble of decision trees that averages the predictions of multiple trees trained on random subsets of the data and features. This approach reduces overfitting and often yields high accuracy on regression tasks like fare prediction.
-
----
-
-## Task
-
-In this project, I build a Random Forest model to predict the exact airline ticket fare (`Average_Fare`) and measure **buffer‐accuracy** (percentage of predictions within ±\$100 of the true price). The pipeline includes:
-
-1. Loading the Kaggle “Airline Market Fare Prediction” dataset  
-2. Selecting numeric features (`MktMilesFlown`, `NonStopMiles`, `RoundTrip`, `Carrier_freq`)  
-3. Splitting into train/test sets  
-4. Scaling features and training a `RandomForestRegressor`  
-5. Computing MSE, MAE, R², and buffer‐accuracy  
-6. Visualizing residuals and performance
-
-
+This repository contains a Jupyter notebook demonstrating how to predict diamond prices using a Random Forest Regressor wrapped in a log-target transform and true-order ordinal encoding. The workflow covers data loading, feature engineering, preprocessing, hyperparameter tuning via successive halving, model evaluation, and visual diagnostics—all in one interactive notebook.
 
 ---
 
-## Dataset & Features
+## Project Structure
 
-**Airline Market Fare Prediction**  
-- Source: Kaggle (`orvile/airline-market-fare-prediction-data`)  
-- File: `MarketFarePredictionData.csv` (~316 k rows)
-
-**Features used:**  
-- `MktMilesFlown` (market‐miles flown)  
-- `NonStopMiles` (miles flown nonstop)  
-- `RoundTrip` (1 = round trip, 0 = one way)  
-- `Carrier_freq` (frequency of this carrier‐route combo)
-
-**Target:**  
-- `Average_Fare` (the ticket price we predict)
----
-
-## Libraries
-
-- **pandas** — data loading & manipulation  
-- **numpy** — numerical operations  
-- **scikit-learn** — `RandomForestRegressor`, preprocessing, evaluation, `GridSearchCV`  
-- **matplotlib** — plotting residuals & true vs. predicted scatter  
+```
+diamond-price-prediction/
+├── data/
+│   └── diamond-prices.csv             # Raw diamond dataset
+├── notebooks/
+│   └── diamond_price_prediction.ipynb # Jupyter notebook with full workflow
+├── pipeline_cache/                     # Cached transformers (optional)
+└── README.md                          # Documentation (this file)
+```
 
 ---
+
+## Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone <repository-url>
+cd diamond-price-prediction
+```
+
+### 2. Install dependencies
+
+```bash
+pip install pandas numpy matplotlib scikit-learn jupyter
+```
+
+### 3. Prepare the data
+
+Place `diamond-prices.csv` in the `data/` directory. The file should include columns:
+`carat, cut, color, clarity, depth, table, price, x, y, z`.
+
+---
+
+## Notebook Workflow
+
+Open `notebooks/diamond_price_prediction.ipynb` and run the sections sequentially:
+
+1. **Imports & Settings**  
+   Load all necessary libraries (`pandas`, `numpy`, `matplotlib`, `scikit-learn`).
+
+2. **Data Loading**  
+   Read `diamond-prices.csv`, verify existence, and preview the first rows.
+
+3. **Feature Engineering**  
+   - Compute `volume = x * y * z`  
+   - Compute `carat_depth_ratio = carat / depth`
+
+4. **Train/Test Split**  
+   Split data into 80% train and 20% test sets.
+
+5. **Preprocessing Pipeline**  
+   Use a `ColumnTransformer` to:
+   - Standard-scale numerical features  
+   - Ordinal-encode `cut`, `color`, and `clarity` in their true quality order
+
+6. **Modeling & Hyperparameter Search**  
+   - Wrap the preprocessing + `RandomForestRegressor` in a `TransformedTargetRegressor` for a log1p target transform  
+   - Run `HalvingGridSearchCV` over RF hyperparameters (`n_estimators`, `max_depth`, `min_samples_split`)
+
+7. **Evaluation**  
+   - Compute MAE, RMSE, R², and MAPE on the hold-out test set  
+   - Print final performance metrics
+
+8. **Diagnostic Plots**  
+   - **Feature Importances** bar chart  
+   - **Predicted vs Actual** scatter with parity line  
+   - **Residual Distribution** histogram
+
+---
+
+## Example Results
+
+A typical run yields:
+
+- **MAE**   : \$262.37  
+- **RMSE**  : \$525.32  
+- **R²**    : 0.9821   
+- **MAPE**  : 6.34%   
+
+---
+
+## Next Steps
+
+- Experiment with additional features or alternative regression algorithms (e.g., XGBoost).  
+
+
+---
+
+## License
+
+This project is licensed under the MIT License. Feel free to use and adapt for your own purposes.
