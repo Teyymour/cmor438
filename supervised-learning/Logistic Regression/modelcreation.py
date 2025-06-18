@@ -12,9 +12,7 @@ from sklearn.linear_model        import LogisticRegression
 from sklearn.metrics             import classification_report, confusion_matrix
 
 # 1) Load the cleaned dataset
-df = pd.read_csv(
-    r"C:\Users\jbats\Projects\cmor438\supervised-learning\Logistic Regression\Cleaned_dataset.csv"
-)
+df = pd.read_csv("/Users/pbat/Projects/cmor438/data/Cleaned_dataset.csv")
 
 # 2) Features & target
 X = df.drop(columns=["Flight_code", "Class"])
