@@ -1,11 +1,8 @@
 ![Perceptron Illustration](./Perceptron.png)
 
+## Perceptron
 
-
-# Diamond Carat Classification with Perceptron
-
-This project trains a Perceptron classifier to predict whether a diamond's carat weight exceeds 0.5 ct, using both numerical and categorical features with careful preprocessing and hyperparameter tuning.
-
+The Perceptron computes a weighted sum of input features plus a constant term and assigns one of two classes depending on whether that sum is non-negative or negative. During training, whenever it misclassifies an example, it adjusts each weight and the constant by adding or subtracting a small fraction (the learning rate) of the input values, gradually moving the decision boundary to correct the errors.
 ---
 
 ## Mathematical Explanation
@@ -42,6 +39,9 @@ The Perceptron is a linear binary classifier learning a weight vector w ∈ ℝ�
 4. **Convergence**  
    If the data are linearly separable and η is constant, the Perceptron algorithm is guaranteed to find a separating hyperplane in a finite number of updates (Perceptron Convergence Theorem).
 
+# Diamond Carat Classification with Perceptron
+
+This project trains a Perceptron classifier to predict whether a diamond's carat weight exceeds 0.5 ct, using both numerical and categorical features with careful preprocessing and hyperparameter tuning.
 
 
 ## Repository Structure

@@ -1,10 +1,8 @@
 ![Random Forest Illustration](./RandomForest.png)
 
+## Random Forest
 
-# Diamond Price Prediction with Random Forest
-
-This repository contains a Jupyter notebook demonstrating how to predict diamond prices using a Random Forest Regressor wrapped in a log-target transform and true-order ordinal encoding. The workflow covers data loading, feature engineering, preprocessing, hyperparameter tuning via successive halving, model evaluation, and visual diagnostics—all in one interactive notebook.
-
+Random Forest builds many decision trees, each trained on a random subset of the data and a random subset of features at each split. For classification, it predicts the class that the majority of trees vote for; for regression, it averages the trees’ outputs. By combining multiple decorrelated trees, it reduces overfitting and boosts overall accuracy.
 ---
 
 ## Mathematical Explanation
@@ -38,6 +36,11 @@ A Random Forest is an ensemble of M decision trees {hₘ(x)}ₘ=₁ᴹ, each tra
      = \rho\,\sigma^2 + \frac{1-\rho}{M}\,\sigma^2,
    $$  
    showing that low correlation ($\rho$) and large $M$ reduce overall variance.
+
+# Diamond Price Prediction with Random Forest
+
+This repository contains a Jupyter notebook demonstrating how to predict diamond prices using a Random Forest Regressor wrapped in a log-target transform and true-order ordinal encoding. The workflow covers data loading, feature engineering, preprocessing, hyperparameter tuning via successive halving, model evaluation, and visual diagnostics—all in one interactive notebook.
+
 
 ## Project Structure
 

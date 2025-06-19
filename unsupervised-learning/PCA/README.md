@@ -1,10 +1,8 @@
 ![PCA Illustration](./PCA.png)
 
+## Principal Component Analysis (PCA)
 
-# PCA Analysis of Meteorite Landings
-
-This repository provides tools for performing Principal Component Analysis (PCA) on a meteorite landings dataset. PCA reduces the dimensionality of the data while preserving variance, allowing for both scree plots and three-dimensional visualizations of the top principal components.
-
+PCA finds new axes in the data that capture the most variance, and then projects the data onto the top few of these axes to reduce dimensionality while preserving as much information as possible.
 ---
 
 ## Mathematical Explanation
@@ -42,11 +40,9 @@ PCA is an unsupervised method that finds orthogonal directions (principal compon
    $$  
    Choose k so that (∑ᵢ₌₁ᵏ λᵢ) / (∑ⱼ₌₁ᵈ λⱼ) exceeds a desired threshold.
 
+# PCA Analysis of Meteorite Landings
 
-
-
-
-
+This repository provides tools for performing Principal Component Analysis (PCA) on a meteorite landings dataset. PCA reduces the dimensionality of the data while preserving variance, allowing for both scree plots and three-dimensional visualizations of the top principal components.
 
 ## Project Structure
 

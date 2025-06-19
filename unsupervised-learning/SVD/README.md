@@ -1,9 +1,8 @@
 ![SVD Illustration](./SVD.png)
 
+## Singular Value Decomposition (SVD)
 
-# Unsupervised SVD Analysis of Uber Pickup Data
-
-This code performs Singular Value Decomposition (SVD) on a New York City Uber rides dataset. The analysis uncovers the principal axes of variation in features such as fare amount, pickup/dropoff locations, passenger count, and time of day, enabling dimensionality reduction, visualization, and identification of outlier rides.
+SVD decomposes any rectangular matrix into three matrices that capture its row patterns, column patterns, and the strength of each pattern (singular values). By keeping only the strongest patterns and discarding the rest, you can reconstruct a close approximation with lower rank, enabling data compression and noise reduction.
 
 ## Mathematical Explanation
 
@@ -42,6 +41,11 @@ SVD factorizes any real matrix X ∈ ℝⁿ×ᵈ into three parts:
 
 
 ---
+
+# Unsupervised SVD Analysis of Uber Pickup Data
+
+This code performs Singular Value Decomposition (SVD) on a New York City Uber rides dataset. The analysis uncovers the principal axes of variation in features such as fare amount, pickup/dropoff locations, passenger count, and time of day, enabling dimensionality reduction, visualization, and identification of outlier rides.
+
 
 ## Project Structure
 
