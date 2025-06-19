@@ -1,6 +1,6 @@
 # Decision Tree Regression
 
-![Decision Tree Illustration](./image.png)
+![Decision Tree Illustration](./DecisionTrees.png)
 
 
 A Decision Tree Regression model approximates the target by recursively partitioning the feature space and predicting the mean value in each partition. It captures nonlinear relationships and interactions and is interpretable via its tree structure.

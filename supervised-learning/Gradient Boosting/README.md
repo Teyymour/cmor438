@@ -1,6 +1,6 @@
 # Gradient Boosting Regression
 
-![Gradient Boosting Illustration](./image.png)
+![Gradient Boosting Illustration](./GradientBoosting.png)
 
 A Gradient Boosting Regression model builds an ensemble of shallow trees sequentially, each one correcting errors of the previous ensemble. It captures complex nonlinear relationships and interactions and tends to outperform single trees by reducing bias and variance.
 

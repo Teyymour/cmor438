@@ -1,6 +1,6 @@
 # Linear Regression
 
-![Linear Regression Illustration](./image.png)
+![Linear Regression Illustration](./LinearRegression.png)
 
 A Linear Regression model assumes a linear relationship between input features and the target. It is fast, interpretable, and provides a strong baseline for diamond price prediction.
 

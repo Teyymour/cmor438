@@ -1,6 +1,6 @@
 # Neural Network Regression
 
-![MLP Illustration](./image.png)
+![Neural Network Image](./NeuralNetwork.png)
 
 A Neural Network Regression model approximates the relationship between inputs and the target by composing multiple layers of linear transformations and nonlinear activations. It captures complex nonlinear patterns and interactions.
 

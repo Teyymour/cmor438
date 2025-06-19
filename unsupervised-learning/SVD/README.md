@@ -1,6 +1,45 @@
+![SVD Illustration](./SVD.png)
+
+
 # Unsupervised SVD Analysis of Uber Pickup Data
 
-This repository contains code for performing Singular Value Decomposition (SVD) on a New York City Uber rides dataset. The analysis uncovers the principal axes of variation in features such as fare amount, pickup/dropoff locations, passenger count, and time of day, enabling dimensionality reduction, visualization, and identification of outlier rides.
+This code performs Singular Value Decomposition (SVD) on a New York City Uber rides dataset. The analysis uncovers the principal axes of variation in features such as fare amount, pickup/dropoff locations, passenger count, and time of day, enabling dimensionality reduction, visualization, and identification of outlier rides.
+
+## Mathematical Explanation
+
+SVD factorizes any real matrix X ∈ ℝⁿ×ᵈ into three parts:
+
+1. **Factorization**  
+   $$
+     X = U\,\Sigma\,V^T
+   $$
+   where  
+   - U ∈ ℝⁿ×ⁿ has orthonormal columns (Uᵀ U = I),   
+   - Σ ∈ ℝⁿ×ᵈ is diagonal with nonnegative singular values (σ₁ ≥ σ₂ ≥ … ≥ 0), 
+   - V ∈ ℝᵈ×ᵈ has orthonormal columns (Vᵀ V = I)  
+
+2. **Singular values**  
+   The diagonal entries σᵢ of σ satisfy  
+   $$
+     \sigma_i = \sqrt{\lambda_i\bigl(X^T X\bigr)},
+   $$
+   where λᵢ(Xᵀ X) are the eigenvalues of the covariance matrix Xᵀ X.
+
+3. **Low-rank approximation**  
+   Truncate to the first \(k\) components to get the best rank-\(k\) approximation in Frobenius norm:
+   $$
+     X_k = U_{[:,1:k]}\,\Sigma_{1:k,1:k}\,V_{[:,1:k]}^T,\quad
+     \|X - X_k\|_F = \min_{\mathrm{rank}(Y)=k}\|X - Y\|_F.
+   $$
+
+4. **Connection to PCA**  
+   Projection onto the top k right-singular vectors V[:,1:k] yields the same subspace as PCA’s top k principal components.
+
+**Notes:**  
+- U gives the left-singular “directions” in sample space, V the right-singular directions in feature space. 
+- σᵢ² is the variance explained by the iᵗʰ component.   
+- SVD works on any rectangular matrix, not just covariance matrices.  
+
 
 ---
 

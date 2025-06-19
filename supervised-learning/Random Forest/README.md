@@ -1,8 +1,43 @@
-# Diamond Price Prediction with Random Forest & Log-Transform
+![Random Forest Illustration](./RandomForest.png)
+
+
+# Diamond Price Prediction with Random Forest
 
 This repository contains a Jupyter notebook demonstrating how to predict diamond prices using a Random Forest Regressor wrapped in a log-target transform and true-order ordinal encoding. The workflow covers data loading, feature engineering, preprocessing, hyperparameter tuning via successive halving, model evaluation, and visual diagnostics—all in one interactive notebook.
 
 ---
+
+## Mathematical Explanation
+
+A Random Forest is an ensemble of M decision trees {hₘ(x)}ₘ=₁ᴹ, each trained on a bootstrap sample and a random subset of features. It reduces variance by averaging many decorrelated trees.  
+
+
+1. **Individual tree**  
+   Each tree $h_m(x)$ partitions the feature space into regions $\{R_{m,\ell}\}_{\ell=1}^{L_m}$ and predicts a constant $c_{m,\ell}$ on each region:  
+   $$
+     h_m(x) = \sum_{\ell=1}^{L_m} c_{m,\ell}\,\mathbf{1}\bigl(x \in R_{m,\ell}\bigr).
+   $$
+
+2. **Regression aggregation**  
+   $$
+     \hat y 
+     = \frac{1}{M}\sum_{m=1}^M h_m(x).
+   $$
+
+3. **Classification aggregation**  
+   $$
+     \hat y 
+     = \arg\max_{c}\sum_{m=1}^M \mathbf{1}\bigl(h_m(x)=c\bigr).
+   $$
+
+4. **Variance reduction**  
+   If each tree has variance $\sigma^2$ and average pairwise correlation $\rho$, then  
+   $$
+     \mathrm{Var}(\hat y)
+     = \frac{\sigma^2}{M}\bigl[1 + (M-1)\rho\bigr]
+     = \rho\,\sigma^2 + \frac{1-\rho}{M}\,\sigma^2,
+   $$  
+   showing that low correlation ($\rho$) and large $M$ reduce overall variance.
 
 ## Project Structure
 
@@ -81,13 +116,13 @@ Open `notebooks/diamond_price_prediction.ipynb` and run the sections sequentiall
 
 A typical run yields:
 
-- **MAE**   : \$262.37  
-- **RMSE**  : \$525.32  
+- **MAE**   : 262.37  
+- **RMSE**  : 525.32  
 - **R²**    : 0.9821   
 - **MAPE**  : 6.34%   
 
 ---
-
+a
 ## Next Steps
 
 - Experiment with additional features or alternative regression algorithms (e.g., XGBoost).  

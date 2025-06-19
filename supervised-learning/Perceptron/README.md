@@ -1,8 +1,48 @@
+![Perceptron Illustration](./Perceptron.png)
+
+
+
 # Diamond Carat Classification with Perceptron
 
 This project trains a Perceptron classifier to predict whether a diamond's carat weight exceeds 0.5 ct, using both numerical and categorical features with careful preprocessing and hyperparameter tuning.
 
 ---
+
+## Mathematical Explanation
+
+The Perceptron is a linear binary classifier learning a weight vector w ∈ ℝᵈ and bias b ∈ ℝ for labels y ∈ {−1, +1}.
+
+1. **Prediction**  
+   $$
+     \hat y = \mathrm{sign}\bigl(w^\top x + b\bigr),\quad
+     \mathrm{sign}(z)=
+     \begin{cases}
+       +1, & z \ge 0,\\
+       -1, & z < 0.
+     \end{cases}
+   $$
+
+2. **Perceptron loss**  
+   $$
+     L(w,b)
+     = \sum_{i=1}^{n}
+       \max\bigl(0,\,-y^{(i)}\bigl(w^\top x^{(i)} + b\bigr)\bigr)
+   $$  
+   This penalizes only misclassified or borderline points.
+
+3. **Update rule**  
+   For each (xᵢ, yᵢ) with yᵢ ŷᵢ ≤ 0, apply
+   $$
+     w \;\leftarrow\; w \;+\;\eta\,y^{(i)}\,x^{(i)}, 
+     \quad
+     b \;\leftarrow\; b \;+\;\eta\,y^{(i)},
+   $$  
+   where η > 0 is the learning rate.
+
+4. **Convergence**  
+   If the data are linearly separable and η is constant, the Perceptron algorithm is guaranteed to find a separating hyperplane in a finite number of updates (Perceptron Convergence Theorem).
+
+
 
 ## Repository Structure
 

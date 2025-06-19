@@ -1,3 +1,6 @@
+![KmeansImage](./KmeansClustering.png)
+
+
 # K-Means Clustering
 
 K-Means clustering partitions the dataset into k clusters by minimizing within-cluster variance. Each point is assigned to the nearest cluster centroid, and centroids are updated iteratively until convergence.

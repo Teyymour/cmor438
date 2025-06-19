@@ -1,6 +1,6 @@
 # DBSCAN Clustering
 
-![DBSCAN Illustration](./image.png)
+![DBSCAN Illustration](./DBSCAN.png)
 
 DBSCAN (Density-Based Spatial Clustering of Applications with Noise) groups points by density rather than distance to centroids. It labels as **core** any point with at least `min_samples` neighbors within radius `eps`, assigns density-reachable points to the same cluster, and marks remaining points as noise.
 
