@@ -5,42 +5,8 @@ KNN finds the `k` training points closest to a query (using a chosen distance me
 
 ---
 ## Mathematical Explanation (KNN)
+![KNN Math](./KNNMath.png)
 
-KNN is a **lazy**, instance-based method that classifies a query point \(x\) by voting among its \(k\) nearest training examples under a chosen distance metric (usually Euclidean).
-
-1. **Distance**  
-   $$
-     d(x, x_i)
-     = \|x - x_i\|_2
-     = \sqrt{\sum_{j=1}^d (x_j - x_{i,j})^2}
-   $$
-
-2. **Find neighbors**  
-   $$
-     N_k(x)
-     = \{\,x_i : x_i\text{ has one of the $k$ smallest }d(x,x_i)\}
-   $$
-
-3. **Classification**  
-   $$
-     \hat y
-     = \arg\max_{c}\;\sum_{x_i\in N_k(x)} \mathbf{1}(y_i = c)
-   $$
-   – ŷ is the predicted class  
-   –  arg max₍c₎ picks the class c maximizing the sum  
-   – 1(yᵢ = c) equals 1 if yᵢ = c, else 0
-
-
-
-4. **Regression**  
-   $$
-     \hat y
-     = \frac{1}{k}\sum_{x_i\in N_k(x)} y_i
-   $$   
-**Notes:**  
-- Small \(k\) ⇒ low bias, high variance; large \(k\) ⇒ high bias, low variance  
-- Distance metric can be Euclidean, Manhattan, cosine, etc.  
-- You can weight neighbor votes/values by any decreasing function of distance.  
 
 # Uber Fare Prediction with K-Nearest Neighbors Regression
 

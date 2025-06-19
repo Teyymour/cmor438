@@ -6,36 +6,10 @@ Random Forest builds many decision trees, each trained on a random subset of the
 ---
 
 ## Mathematical Explanation
+![Random Forest Math Illustration](./RandomForestMath.png)
 
-A Random Forest is an ensemble of M decision trees {hₘ(x)}ₘ=₁ᴹ, each trained on a bootstrap sample and a random subset of features. It reduces variance by averaging many decorrelated trees.  
+ 
 
-
-1. **Individual tree**  
-   Each tree $h_m(x)$ partitions the feature space into regions $\{R_{m,\ell}\}_{\ell=1}^{L_m}$ and predicts a constant $c_{m,\ell}$ on each region:  
-   $$
-     h_m(x) = \sum_{\ell=1}^{L_m} c_{m,\ell}\,\mathbf{1}\bigl(x \in R_{m,\ell}\bigr).
-   $$
-
-2. **Regression aggregation**  
-   $$
-     \hat y 
-     = \frac{1}{M}\sum_{m=1}^M h_m(x).
-   $$
-
-3. **Classification aggregation**  
-   $$
-     \hat y 
-     = \arg\max_{c}\sum_{m=1}^M \mathbf{1}\bigl(h_m(x)=c\bigr).
-   $$
-
-4. **Variance reduction**  
-   If each tree has variance $\sigma^2$ and average pairwise correlation $\rho$, then  
-   $$
-     \mathrm{Var}(\hat y)
-     = \frac{\sigma^2}{M}\bigl[1 + (M-1)\rho\bigr]
-     = \rho\,\sigma^2 + \frac{1-\rho}{M}\,\sigma^2,
-   $$  
-   showing that low correlation ($\rho$) and large $M$ reduce overall variance.
 
 # Diamond Price Prediction with Random Forest
 

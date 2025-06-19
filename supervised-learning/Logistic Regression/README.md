@@ -6,34 +6,8 @@ Logistic Regression fits a weighted sum of input features, applies the sigmoid f
 
 
 ## Mathematical Explanation
-Logistic Regression is a discriminative, linear model that estimates the probability of a binary outcome via the logistic (sigmoid) function.
+![Logistic Regression Math](./LogRegMath.png)
 
-1. **Model**  
-   $$P(y=1 \mid x) = \sigma(w^T x + b) = \frac{1}{1 + e^{-(w^T x + b)}}$$
-
-2. **Decision Rule**  
-   $$\hat y =
-   \begin{cases}
-     1, & \sigma(w^T x + b) \ge 0.5,\\
-     0, & \text{otherwise}.
-   \end{cases}$$
-
-3. **Loss Function**  
-   $$\mathcal{L}(w,b) 
-     = -\sum_{i=1}^{n}\Bigl[
-         y^{(i)}\ln\sigma(w^T x^{(i)}+b)
-         + (1 - y^{(i)})\ln\bigl(1 - \sigma(w^T x^{(i)}+b)\bigr)
-       \Bigr]$$
-
-4. **Gradient**  
-   $$\nabla_w \,\mathcal{L}
-     = \sum_{i=1}^{n}\bigl(\sigma(w^T x^{(i)}+b) - y^{(i)}\bigr)\,x^{(i)},$$  
-   $$\frac{\partial \mathcal{L}}{\partial b}
-     = \sum_{i=1}^{n}\bigl(\sigma(w^T x^{(i)}+b) - y^{(i)}\bigr)$$
-
-5. **Regularization (L₂)**  
-   $$\mathcal{L}_{\lambda}(w,b)
-     = \mathcal{L}(w,b) + \frac{\lambda}{2}\lVert w\rVert_{2}^{2}$$
 
 # Flight Delay Classification with Logistic Regression & SMOTE
 
