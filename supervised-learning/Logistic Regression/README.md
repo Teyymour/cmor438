@@ -1,12 +1,9 @@
 ![Logistic Regression Illustration](./LogisticRegression.jpg)
 
+## Logistic Regression
 
+Logistic Regression fits a weighted sum of input features, applies the sigmoid function to map that sum to a probability between 0 and 1, and then classifies as positive if the probability ≥ 0.5 and negative otherwise.  
 
-# Flight Delay Classification with Logistic Regression & SMOTE
-
-This repository contains a Jupyter notebook demonstrating how to classify flight delays using a multinomial logistic regression model combined with SMOTE upsampling to address class imbalance. The pipeline covers data loading, feature selection, preprocessing, resampling, model training, evaluation, and visualization—all in one interactive notebook.
-
----
 
 ## Mathematical Explanation
 Logistic Regression is a discriminative, linear model that estimates the probability of a binary outcome via the logistic (sigmoid) function.
@@ -38,6 +35,11 @@ Logistic Regression is a discriminative, linear model that estimates the probabi
    $$\mathcal{L}_{\lambda}(w,b)
      = \mathcal{L}(w,b) + \frac{\lambda}{2}\lVert w\rVert_{2}^{2}$$
 
+# Flight Delay Classification with Logistic Regression & SMOTE
+
+This repository contains a Jupyter notebook demonstrating how to classify flight delays using a multinomial logistic regression model combined with SMOTE upsampling to address class imbalance. The pipeline covers data loading, feature selection, preprocessing, resampling, model training, evaluation, and visualization—all in one interactive notebook.
+
+---
 
 ## Project Structure
 
