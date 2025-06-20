@@ -2,47 +2,17 @@
 
 ## Principal Component Analysis (PCA)
 
-PCA finds new axes in the data that capture the most variance, and then projects the data onto the top few of these axes to reduce dimensionality while preserving as much information as possible.
+Principal Component Analysis (PCA) is a method for reducing the dimensionality of a dataset while preserving as much variability as possible. It does this by identifying new axes, called principal components, that capture the directions of greatest variance in the data. These components are linear combinations of the original features and are orthogonal to each other. PCA first centers the data, then uses techniques like eigen decomposition or singular value decomposition to find these directions. The data is then projected onto the top few principal components, resulting in a simplified version that retains the most important patterns.
 ---
 
 ## Mathematical Explanation
 
-PCA is an unsupervised method that finds orthogonal directions (principal components) capturing maximum variance in the data.
+![PCA Math Illustration](./PCAMath.png)
 
-1. **Centering**  
-   Given data matrix X ∈ ℝⁿ×ᵈ (rows are samples), subtract the feature means:  
-   $$
-     \widetilde X = X - \frac{1}{n}\mathbf{1}\mathbf{1}^T X
-   $$
-
-2. **Covariance matrix**  
-   $$
-     \Sigma = \frac{1}{n-1}\,\widetilde X^T \widetilde X
-   $$
-
-3. **Eigen-decomposition**  
-   Find eigenvalues λᵢ and orthonormal eigenvectors vᵢ of Σ: 
-   $$
-     \Sigma\,v_i = \lambda_i\,v_i,\quad 
-     \lambda_1 \ge \lambda_2 \ge \cdots \ge 0
-   $$
-
-4. **Projection**  
-   Project the data onto the top k components to get a lower-dimensional representation Y ∈ ℝⁿ×ᵏ:
-   $$
-     Y = \widetilde X\,[\,v_1,\dots,v_k\,]
-   $$
-
-5. **Explained variance ratio**  
-   The fraction of total variance captured by component i is  
-   $$
-     \frac{\lambda_i}{\sum_{j=1}^d \lambda_j}\,.
-   $$  
-   Choose k so that (∑ᵢ₌₁ᵏ λᵢ) / (∑ⱼ₌₁ᵈ λⱼ) exceeds a desired threshold.
 
 # PCA Analysis of Meteorite Landings
 
-This repository provides tools for performing Principal Component Analysis (PCA) on a meteorite landings dataset. PCA reduces the dimensionality of the data while preserving variance, allowing for both scree plots and three-dimensional visualizations of the top principal components.
+This Folder contains tools for performing Principal Component Analysis (PCA) on a meteorite landings dataset. PCA reduces the dimensionality of the data while preserving variance, allowing for both scree plots and three-dimensional visualizations of the top principal components.
 
 ## Project Structure
 
