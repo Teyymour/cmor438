@@ -1,5 +1,8 @@
 # Supervised Learning Models
 
+![SupervisedLearningIllustration](./SupervisedLearning.png)
+
+
 ## Table of Content
 
 * [Introduction](#introduction)
