@@ -1,43 +1,12 @@
 ![SVD Illustration](./SVD.png)
 
 ## Singular Value Decomposition (SVD)
-
-SVD decomposes any rectangular matrix into three matrices that capture its row patterns, column patterns, and the strength of each pattern (singular values). By keeping only the strongest patterns and discarding the rest, you can reconstruct a close approximation with lower rank, enabling data compression and noise reduction.
+Singular Value Decomposition (SVD) decomposes any rectangular matrix into three matrices—one capturing row patterns, one capturing column patterns, and one containing singular values that represent the strength or importance of each pattern. These patterns correspond to orthogonal directions in the data, and the singular values indicate how much each direction contributes to the overall structure. By keeping only the strongest patterns (those with the largest singular values) and discarding the rest, you can reconstruct a close approximation of the original matrix with lower rank. This allows for effective data compression, noise reduction, and simplification, all while preserving the most important information in the data.
 
 ## Mathematical Explanation
+![SVD Math Illustration](./SVDMath.png)
 
-SVD factorizes any real matrix X ∈ ℝⁿ×ᵈ into three parts:
 
-1. **Factorization**  
-   $$
-     X = U\,\Sigma\,V^T
-   $$
-   where  
-   - U ∈ ℝⁿ×ⁿ has orthonormal columns (Uᵀ U = I),   
-   - Σ ∈ ℝⁿ×ᵈ is diagonal with nonnegative singular values (σ₁ ≥ σ₂ ≥ … ≥ 0), 
-   - V ∈ ℝᵈ×ᵈ has orthonormal columns (Vᵀ V = I)  
-
-2. **Singular values**  
-   The diagonal entries σᵢ of σ satisfy  
-   $$
-     \sigma_i = \sqrt{\lambda_i\bigl(X^T X\bigr)},
-   $$
-   where λᵢ(Xᵀ X) are the eigenvalues of the covariance matrix Xᵀ X.
-
-3. **Low-rank approximation**  
-   Truncate to the first \(k\) components to get the best rank-\(k\) approximation in Frobenius norm:
-   $$
-     X_k = U_{[:,1:k]}\,\Sigma_{1:k,1:k}\,V_{[:,1:k]}^T,\quad
-     \|X - X_k\|_F = \min_{\mathrm{rank}(Y)=k}\|X - Y\|_F.
-   $$
-
-4. **Connection to PCA**  
-   Projection onto the top k right-singular vectors V[:,1:k] yields the same subspace as PCA’s top k principal components.
-
-**Notes:**  
-- U gives the left-singular “directions” in sample space, V the right-singular directions in feature space. 
-- σᵢ² is the variance explained by the iᵗʰ component.   
-- SVD works on any rectangular matrix, not just covariance matrices.  
 
 
 ---
