@@ -1,7 +1,6 @@
 ![PCA Illustration](./PCA.png)
 
 ## Principal Component Analysis (PCA)
-
 Principal Component Analysis (PCA) is a method for reducing the dimensionality of a dataset while preserving as much variability as possible. It does this by identifying new axes, called principal components, that capture the directions of greatest variance in the data. These components are linear combinations of the original features and are orthogonal to each other. PCA first centers the data, then uses techniques like eigen decomposition or singular value decomposition to find these directions. The data is then projected onto the top few principal components, resulting in a simplified version that retains the most important patterns.
 
 ## Mathematical Explanation
